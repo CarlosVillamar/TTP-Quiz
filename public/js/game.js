@@ -1,15 +1,60 @@
 // scripts here:
 
+$(document).ready(function () {
+
+    $('#submitButton').click(function () {
+        $(this).addClass('hide');
+    });
+
+    $.ajax({
+        type: 'GET',
+        url: "http://api.napster.com/v2.2/search/verbose?apikey=YTkxZTRhNzAtODdlNy00ZjMzLTg0MWItOTc0NmZmNjU4Yzk4&per_type_limit=3&query=mario+solo+piano&type=track",
+        success: (d) => {//attempted to do playlist
+            // var i=0;
+            // for( var t in d.search.data.tracks){
+            // const s = d.search.data.tracks[i].previewURL
+            // console.log(s)
+            // $('audio').append("<source src='" + s + "'type='audio/mpeg'>")
+            // i++
+            // }
+            const s = d.search.data.tracks[0].previewURL
+            console.log(s)
+            $('audio').append("<source src='" + s + "'type='audio/mpeg'>")
+
+        }
+    })
+
+    var song = document.getElementById("audio")
+    // console.log(song)
+
+    $('#mute').click((e)=>{
+        e.preventDefault()
+        // console.log("button")
+        song.pause()
+        if(song.pause()){
+            song.play()
+        }
+    })
+    $('#mute').dblclick((e)=>{
+        e.preventDefault();
+        song.play()
+    })
+
+
+    });
+$()
+
+
 function submitQuiz() {
     console.log('submitted');
 
-// get each answer score
-    function answerScore (qName) {
+    // get each answer score
+    function answerScore(qName) {
         var radiosNo = document.getElementsByName(qName);
 
         for (var i = 0, length = radiosNo.length; i < length; i++) {
-               if (radiosNo[i].checked) {
-        // do something with radiosNo
+            if (radiosNo[i].checked) {
+                // do something with radiosNo
                 var answerValue = Number(radiosNo[i].value);
             }
         }
@@ -20,18 +65,18 @@ function submitQuiz() {
         return answerValue;
     }
 
-// calc score with answerScore function
+    // calc score with answerScore function
     var calcScore = (answerScore('q1') + answerScore('q2') + answerScore('q3') + answerScore('q4'));
     console.log("CalcScore: " + calcScore); // it works!
 
-// function to return correct answer string
-    function correctAnswer (correctStringNo, qNumber) {
+    // function to return correct answer string
+    function correctAnswer(correctStringNo, qNumber) {
         console.log("qNumber: " + qNumber);  // logs 1,2,3,4 after called below
         return ("The correct answer for question #" + qNumber + ": &nbsp;<strong>" +
             (document.getElementById(correctStringNo).innerHTML) + "</strong>");
-        }
+    }
 
-// print correct answers only if wrong (calls correctAnswer function)
+    // print correct answers only if wrong (calls correctAnswer function)
     if (answerScore('q1') === 0) {
         document.getElementById('correctAnswer1').innerHTML = correctAnswer('correctString1', 1);
     }
@@ -45,7 +90,7 @@ function submitQuiz() {
         document.getElementById('correctAnswer4').innerHTML = correctAnswer('correctString4', 4);
     }
 
-// calculate "possible score" integer
+    // calculate "possible score" integer
     var questionCountArray = document.getElementsByClassName('question');
 
     var questionCounter = 0;
@@ -53,19 +98,12 @@ function submitQuiz() {
         questionCounter++;
     }
 
-// show score as "score/possible score"
-    var showScore = "Your Score: " + calcScore +"/" + questionCounter;
-// if 4/4, "perfect score!"
+    // show score as "score/possible score"
+    var showScore = "Your Score: " + calcScore + "/" + questionCounter;
+    // if 4/4, "perfect score!"
     if (calcScore === questionCounter) {
         showScore = showScore + "&nbsp; <strong>Perfect Score!</strong>"
     };
     document.getElementById('userScore').innerHTML = showScore;
 }
 
-$(document).ready(function() {
-
-$('#submitButton').click(function() {
-    $(this).addClass('hide');
-});
-
-});
