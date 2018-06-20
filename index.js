@@ -23,7 +23,8 @@ app.use(exp.json())
 app.use(parser.urlencoded({ extended: true }))
 
 app.get('/',(req,res)=>{
-    res.send('hello world')
+    // res.send('hello world')
+    res.render('quiz')
 })
 
 app.listen(PORT,()=>{
