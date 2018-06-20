@@ -8,7 +8,10 @@ var parser = require('body-parser')
 // var connectionString = 'postgres://postgres' + ':' + process.env.POSTGRES_PASSWORD + '@localhost/blog';
 // console.log(process.env.DATABASE_URL)
 // var connectionString = process.env.DATABASE_URL
-var connectionString = 'postgres://rqyuuegdamtgnm:c18a72bfca04876804550396dc037c0933e8d5abd53aa67af572497c34718e72@ec2-54-243-235-153.compute-1.amazonaws.com:5432/dbadqlplncc2qi'
+
+//Created postgresql-metric-78193 as DATABASE_URL
+//CLI heroku pg:psql postgresql-metric-78193 --app quiz-ttp
+var connectionString = 'postgres://tgihklmlxbnwis:de88c96921a936d483e316958dff8c539f3cfab1348cd342aff3ae1838a4aecc@ec2-50-19-86-139.compute-1.amazonaws.com:5432/d2r2s748gava4s'
 const PORT = process.env.PORT || 8080;
 const {Client} = require('pg')
 
