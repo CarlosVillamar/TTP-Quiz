@@ -7,6 +7,7 @@ var parser = require('body-parser')
 //const server = http.createServer(handleRequest);
 // var connectionString = 'postgres://postgres' + ':' + process.env.POSTGRES_PASSWORD + '@localhost/blog';
 // console.log(process.env.DATABASE_URL)
+
 // var connectionString = process.env.DATABASE_URL
 
 //Created postgresql-metric-78193 as DATABASE_URL
@@ -14,7 +15,7 @@ var parser = require('body-parser')
 var connectionString = 'postgres://tgihklmlxbnwis:de88c96921a936d483e316958dff8c539f3cfab1348cd342aff3ae1838a4aecc@ec2-50-19-86-139.compute-1.amazonaws.com:5432/d2r2s748gava4s'
 const PORT = process.env.PORT || 8080;
 const {Client} = require('pg')
-
+//db instance
 
 app.set('view engine', 'ejs')
 
@@ -25,6 +26,10 @@ app.use(parser.urlencoded({ extended: true }))
 app.get('/',(req,res)=>{
     // res.send('hello world')
     res.render('quiz')
+})
+
+app.post('/post',(req,res)=>{
+    res.redirect('/')
 })
 
 app.listen(PORT,()=>{
