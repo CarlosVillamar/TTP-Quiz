@@ -47,7 +47,8 @@ app.post('/add',(req,res)=>{
      res.redirect('/score')
 })
 
-app.get('/score',(req,res)=>{    
+app.get('/score',(req,res)=>{  
+    //renders scoreboard on next pg  
     const client = new Client({
       connectionString: connectionString,
       ssl: true

@@ -1,10 +1,9 @@
-@import url(https://fonts.googleapis.com/css?family=Work+Sans:300,600);
 
 body{
 	font-size: 20px;
-	font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+	font-family: 'Work Sans';
 	color: #333;
-  font-weight: 300;
+  font-weight: 300; 
   text-align: center;
   background-color: #f8f6f0;
 }
@@ -29,7 +28,7 @@ h1{
   margin-bottom: 10px;
 }
 button{
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Work Sans';
 	font-size: 22px;
 	background: linear-gradient(0.25turn, #FF530D, #FF0000, #E82C0C);
 	color: #fff;
@@ -73,7 +72,7 @@ button:hover{
 }
 table{
     width: 200px;
-    margin-left: 42%; 
+    margin-left: 40%; 
     border: #444 solid 3px;
   }
   
@@ -105,7 +104,7 @@ table{
     font-size: 20px;
     text-decoration: none;
     list-style-type:none;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial;
      width: 100%;
   
   

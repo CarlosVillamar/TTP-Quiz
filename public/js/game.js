@@ -66,65 +66,66 @@ $(document).ready(function () {
                 d: "Madonna",
             },
             correctAnswer: "c"
-        },
+        }
 
-        {
-            question: "Which movie grossed the most money in 2018?",
-            answers: {
-                a: "Incredibles",
-                b: "Black Panthers",
-                c: "Deadpool",
-                d: "Avengers: Infinity War",
-            },
-            correctAnswer: "b"
-        },
-
-
-
-        {
-            question: "What is a popular dish in Cuba?",
-            answers: {
-                a: "Frita",
-                b: "Cheeseburger",
-                c: "Asado",
-                d: "Carbonara",
-            },
-            correctAnswer: "a"
-        },
-
-        {
-            question: "When was the first car invented?",
-            answers: {
-                a: "2018",
-                b: "1886",
-                c: "1773",
-                d: "1856",
-            },
-            correctAnswer: "a"
-        },
-
-        {
-            question: "Where did hip-hop originate?",
-            answers: {
-                a: "Queens",
-                b: "West Virginia",
-                c: "Bronx",
-                d: "Manhatthan",
-            },
-            correctAnswer: "c"
-        },
+        // ,
+        // {
+        //     question: "Which movie grossed the most money in 2018?",
+        //     answers: {
+        //         a: "Incredibles",
+        //         b: "Black Panthers",
+        //         c: "Deadpool",
+        //         d: "Avengers: Infinity War",
+        //     },
+        //     correctAnswer: "b"
+        // },
 
 
-        {
-            question: "In what state is the statue of liberty located?",
-            answers: {
-                a: "NY",
-                b: "NJ",
-                c: "CA",
-                d: "IN",
-            },
-            correctAnswer: "a"
-        },
+
+        // {
+        //     question: "What is a popular dish in Cuba?",
+        //     answers: {
+        //         a: "Frita",
+        //         b: "Cheeseburger",
+        //         c: "Asado",
+        //         d: "Carbonara",
+        //     },
+        //     correctAnswer: "a"
+        // },
+
+        // {
+        //     question: "When was the first car invented?",
+        //     answers: {
+        //         a: "2018",
+        //         b: "1886",
+        //         c: "1773",
+        //         d: "1856",
+        //     },
+        //     correctAnswer: "a"
+        // },
+
+        // {
+        //     question: "Where did hip-hop originate?",
+        //     answers: {
+        //         a: "Queens",
+        //         b: "West Virginia",
+        //         c: "Bronx",
+        //         d: "Manhatthan",
+        //     },
+        //     correctAnswer: "c"
+        // },
+
+
+        // {
+        //     question: "In what state is the statue of liberty located?",
+        //     answers: {
+        //         a: "NY",
+        //         b: "NJ",
+        //         c: "CA",
+        //         d: "IN",
+        //     },
+        //     correctAnswer: "a"
+        // },
 
         ]
 
