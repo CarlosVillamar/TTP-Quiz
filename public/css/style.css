@@ -31,7 +31,7 @@ h1{
 button{
   font-family: 'Work Sans', sans-serif;
 	font-size: 22px;
-	background-color: #279;
+	background: linear-gradient(0.25turn, #FF530D, #FF0000, #E82C0C);
 	color: #fff;
 	border: 0px;
 	border-radius: 3px;
@@ -130,7 +130,7 @@ table{
   }
 
   form{
-  border-style: outset; 
+  border: outset #FF0000 ; 
   
   }
   a{
