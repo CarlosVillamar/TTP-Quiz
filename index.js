@@ -28,9 +28,46 @@ app.get('/',(req,res)=>{
     res.render('quiz')
 })
 
-app.post('/post',(req,res)=>{
-    res.redirect('/')
+app.post('/add',(req,res)=>{
+    
+    let data = req.body;
+    
+    const client = new Client({
+        connectionString: connectionString,
+        ssl:true
+    })
+
+
+    client.connect().then(()=>{
+        // console.log('inserted a message.');
+         console.log(data.fname,"",data.score)
+        return client.query(`INSERT INTO scoreboard (tag,score) VALUES ($1,$2)`, [data.fname,data.score])
+        
+    })
+     res.redirect('/score')
 })
+
+app.get('/score',(req,res)=>{    
+    const client = new Client({
+      connectionString: connectionString,
+      ssl: true
+    })
+    client.connect()
+      .then(() => {
+        return client.query(`SELECT * FROM scoreboard ORDER BY ID ASC`)
+      })
+      .then((result) => {
+        // render index page
+  
+        return res.render('score', {
+          result
+        })
+      })
+      // res.render('score')
+  })
+
+
+
 
 app.listen(PORT,()=>{
     console.log("online")

@@ -6,8 +6,9 @@ $(document).ready(function () {
 
         //grabs elements from the the respective Ids and sets it to a variable constant
         const quizContainer = document.getElementById("quiz");
-        const resultsContainer = document.getElementById("results");
+        const resultsContainer = document.getElementById("result");
         const submitButton = document.getElementById("submit");
+        const score = document.getElementById('score')
 
         //Sets the array of questions
         const myQuestions = [{
@@ -43,87 +44,87 @@ $(document).ready(function () {
                 d: "Los Angeles Lakers",
             },
             correctAnswer: "c"
-        },
+        }
 
-        {
-            question: " Which country  has won the most World Cups?",
-            answers: {
-                a: "Argentina",
-                b: "Russia",
-                c: "Italy",
-                d: "Brasil",
-            },
-            correctAnswer: "d"
-        },
+        // {
+        //     question: " Which country  has won the most World Cups?",
+        //     answers: {
+        //         a: "Argentina",
+        //         b: "Russia",
+        //         c: "Italy",
+        //         d: "Brasil",
+        //     },
+        //     correctAnswer: "d"
+        // },
 
-        {
-            question: "Who is the king of pop?",
-            answers: {
-                a: "James Brown",
-                b: "Chris Brown",
-                c: "Michael Jackson",
-                d: "Madonna",
-            },
-            correctAnswer: "c"
-        },
+        // {
+        //     question: "Who is the king of pop?",
+        //     answers: {
+        //         a: "James Brown",
+        //         b: "Chris Brown",
+        //         c: "Michael Jackson",
+        //         d: "Madonna",
+        //     },
+        //     correctAnswer: "c"
+        // },
 
-        {
-            question: "Which movie grossed the most money in 2018?",
-            answers: {
-                a: "Incredibles",
-                b: "Black Panthers",
-                c: "Deadpool",
-                d: "Avengers: Infinity War",
-            },
-            correctAnswer: "b"
-        },
-
-
-
-        {
-            question: "What is a popular dish in Cuba?",
-            answers: {
-                a: "Frita",
-                b: "Cheeseburger",
-                c: "Asado",
-                d: "Carbonara",
-            },
-            correctAnswer: "a"
-        },
-
-        {
-            question: "When was the first car invented?",
-            answers: {
-                a: "2018",
-                b: "1886",
-                c: "1773",
-                d: "1856",
-            },
-            correctAnswer: "a"
-        },
-
-        {
-            question: "Where did hip-hop originate?",
-            answers: {
-                a: "Queens",
-                b: "West Virginia",
-                c: "Bronx",
-                d: "Manhatthan",
-            },
-            correctAnswer: "c"
-        },
+        // {
+        //     question: "Which movie grossed the most money in 2018?",
+        //     answers: {
+        //         a: "Incredibles",
+        //         b: "Black Panthers",
+        //         c: "Deadpool",
+        //         d: "Avengers: Infinity War",
+        //     },
+        //     correctAnswer: "b"
+        // },
 
 
-        {
-            question: "Where is the statue of liberty located?",
-            answers: {
-                a: "NY",
-                b: "NJ",
-                c: "CA",
-                d: "IN",
-            },
-            correctAnswer: "a"
-        },
+
+        // {
+        //     question: "What is a popular dish in Cuba?",
+        //     answers: {
+        //         a: "Frita",
+        //         b: "Cheeseburger",
+        //         c: "Asado",
+        //         d: "Carbonara",
+        //     },
+        //     correctAnswer: "a"
+        // },
+
+        // {
+        //     question: "When was the first car invented?",
+        //     answers: {
+        //         a: "2018",
+        //         b: "1886",
+        //         c: "1773",
+        //         d: "1856",
+        //     },
+        //     correctAnswer: "a"
+        // },
+
+        // {
+        //     question: "Where did hip-hop originate?",
+        //     answers: {
+        //         a: "Queens",
+        //         b: "West Virginia",
+        //         c: "Bronx",
+        //         d: "Manhatthan",
+        //     },
+        //     correctAnswer: "c"
+        // },
+
+
+        // {
+        //     question: "In what state is the statue of liberty located?",
+        //     answers: {
+        //         a: "NY",
+        //         b: "NJ",
+        //         c: "CA",
+        //         d: "IN",
+        //     },
+        //     correctAnswer: "a"
+        // },
 
         ]
 
@@ -161,6 +162,7 @@ $(document).ready(function () {
             quizContainer.innerHTML = output.join(" ");
         }
 
+        
         function showResults() {
             // gather answer containers from our quiz
             const answerContainers = quizContainer.querySelectorAll(".answers");
@@ -190,7 +192,11 @@ $(document).ready(function () {
             });
 
             // show number of correct answers out of total
-            resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+            score.value = `${numCorrect} out of ${myQuestions.length}`;
+
+            resultsContainer.value = `${numCorrect}`
+            // results container
+            
 
         }
 
@@ -266,15 +272,16 @@ $(document).ready(function () {
     $('#mute').click((e) => {
         e.preventDefault()
         // console.log("button")
-        song.pause()
-        if (song.pause()) {
-            song.play()
+      if(song.muted===true){
+            song.muted =false
+            $('#mute').css('background-color','orange')
+
+        }else{
+            song.muted=true
+            $('#mute').css('background-color','blue')
         }
     })
-    $('#mute').dblclick((e) => {
-        e.preventDefault();
-        song.play()
-    })
+  
     $("#tag").keydown(function (e) {
         if (e.which== 13) {
             // console.log("enter pressed")
@@ -282,10 +289,13 @@ $(document).ready(function () {
             e.preventDefault();
         }
     });
+    $('#submit').click(function(){
+            $('#form').submit()
+    })
 
 });
 function capped() {
     //disable username text box to lock in the value
-    document.getElementById("tag").disabled = true;
+    document.getElementById("tag").readOnly = true;
 }
 

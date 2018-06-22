@@ -10,29 +10,41 @@
 </head>
 
 <body>
-    <button id="mute">
-        <i class="fas fa-microphone-slash" style="background-color:orange; color: whitesmoke;  "></i>
-    </button>
-    <span style="font-size: 8px"> click to pause track or double click to resume</span>
-    <h2 class="quizHeader">Take a Quiz!</h2>
-
+    <nav class="upBar">
+        <ul>
+            <li>
+                <a href="/score">View the leaderboard</a>
+            </li>
+            <li> 
+            <i class="fas fa-microphone-slash" style="background-color:orange; color: whitesmoke;" id="mute"></i>
+            </li>
+            
+        </ul>
+    </nav>
+    <h2 class="quizHeader">
+        <img src="images/quizLogo.jpg" id="logo" /> Take our Quiz!</h2>
 
     <form id="form" action="/add" method="POST">
-    Enter your desired username: <input id="tag" type="text" name="fname"> 
-    <input id="subTag" type="submit" value="Ready!!" style="display: block;" onclick="capped()">
-    <div id=box>
-    <h1>Quiz on Important Facts</h1>
-    <div class="quiz-container">
-        <div id="quiz"></div>
-    </div>
-    </div>
+        <br>
+        Give yourself a
+        <em>quiztag</em> and hit enter:
+        <input id="tag" minlength="3" maxlength="10" type="text" name="fname">
+        <br>
+        <div id=box>
+            <h1 class="upbar">Think you can get a perfect ten?</h1>
+            <div class="quiz-container">
+                <div id="quiz"></div>
+            </div>
+        </div>
+        <input readonly id="result" type="number" name="score" style="display: none"></input>
+    </form>
     <button id="previous">Previous Question</button>
     <button id="next">Next Question</button>
+
+    <div id="score"></div>
+
     <button id="submit">Submit Quiz</button>
-    <div id="results"></div>
-</form>
-
-
+    
     <audio autoplay loop id="audio">
     </audio>
 

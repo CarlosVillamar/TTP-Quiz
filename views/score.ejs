@@ -1,0 +1,39 @@
+<!DOCTYPE html5>
+
+<head>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <h1 class="upbar">how did you fair?</h1>
+<br>
+  <table>
+     <tr>
+        <th>User</th>
+        <th>Score</th>
+      </tr>
+    <% for (let i in result.rows) { %>
+     
+      <tr>
+        <td>
+          <%= result.rows[i].tag %>
+        </td>
+        <td>
+          <%= result.rows[i].score %>
+        </td>
+
+      </tr>
+      <%}%>
+
+  </table>
+  <br>
+  <nav class="upBar" style="padding: 5px">
+      <ul>
+          <li>
+              <a href="/">try again?</a>
+          </li>
+      </ul>
+  </nav>
+
+</body>
